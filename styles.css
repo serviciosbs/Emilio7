@@ -1,0 +1,1723 @@
+/* Variables CSS para personalización */
+:root {
+  /* Colores Superman */
+  --superman-blue: #0066cc;
+  --superman-red: #d32f2f;
+  --superman-yellow: #ffeb3b;
+  --superman-black: #000000;
+  --superman-gray: #666666;
+
+  /* Colores adicionales */
+  --white: #ffffff;
+  --dark-bg: #111111;
+  --almost-black: #1a1a1a;
+  --light-gray: #f5f5f5;
+
+  /* Tipografías */
+  --font-primary: "Montserrat", sans-serif;
+  --font-secondary: "Fredoka", cursive;
+
+  /* Espaciado reducido */
+  --container-padding: 1rem;
+  --section-padding: 2rem 0;
+}
+
+/* Reset y base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  color: var(--white);
+  overflow-x: hidden;
+  /* Fondo fijo optimizado para mobile first */
+  background: url("https://raw.githubusercontent.com/edvardoviedo/duskyberryassets/refs/heads/main/best-dc-comics-iphone-wallpaper-image-iphone-lmb8gosdiw5574pr.webp")
+    center center fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Mejora para dispositivos móviles - evitar zoom antiestético */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center center;
+    min-height: 100vh;
+  }
+}
+
+/* Overlay para mejorar legibilidad del texto sobre el fondo */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Tipografía con sombras para contraste */
+.section-title {
+  font-family: var(--font-secondary);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Texto general con sombra */
+p,
+h3,
+h2 {
+  color: var(--white);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Header Hero Section - sin cambios en el fondo */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* Remover el fondo fijo del hero para que use el video */
+  background: none;
+}
+
+.hero-section::before {
+  display: none; /* Desactivar overlay en hero */
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-fallback {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--superman-blue) 0%,
+    var(--superman-red) 100%
+  );
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(211, 47, 47, 0.7) 0%,
+    rgba(0, 102, 204, 0.6) 50%,
+    rgba(211, 47, 47, 0.7) 100%
+  );
+  z-index: -1;
+}
+
+.hero-content {
+  text-align: center;
+  color: var(--white);
+  z-index: 1;
+  animation: heroFadeIn 2s ease-out;
+}
+
+.main-title {
+  font-family: var(--font-secondary);
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  animation: titleZoom 2s ease-out 0.5s both;
+}
+
+.subtitle {
+  font-family: var(--font-secondary);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 500;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: subtitleSlide 2s ease-out 1s both;
+}
+
+.superman-logo {
+  margin: 2rem 0;
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+.s-logo-img {
+  width: 120px;
+  height: auto;
+  filter: drop-shadow(0 0 20px rgba(255, 235, 59, 0.5));
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: var(--white);
+  animation: scrollBounce 2s infinite;
+  cursor: pointer;
+}
+
+.scroll-arrow {
+  margin-bottom: 0.5rem;
+  animation: scrollBounce 2s infinite;
+}
+
+.scroll-arrow svg {
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+/* Secciones con fondo transparente para mostrar el fondo fijo */
+.countdown-section,
+.event-details,
+.gallery-section,
+.inspiration-section,
+.rsvp-section,
+.music-section {
+  padding: var(--section-padding);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  margin: 0;
+}
+
+/* Countdown Section - Estilo Superman con colores temáticos */
+.countdown-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  background: linear-gradient(
+    135deg,
+    var(--superman-blue) 0%,
+    var(--superman-red) 100%
+  );
+  border-radius: 25px;
+  padding: 3rem 2rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border: 4px solid var(--superman-yellow);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.countdown-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 235, 59, 0.1),
+    transparent
+  );
+  animation: shimmer 3s linear infinite;
+  pointer-events: none;
+}
+
+.countdown-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+}
+
+.time-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 100px;
+  position: relative;
+}
+
+.time-number {
+  display: block;
+  font-family: var(--font-secondary);
+  font-size: clamp(3rem, 6vw, 4rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(45deg, var(--superman-yellow), #fff700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: transform 0.3s ease;
+}
+
+.time-label {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: var(--white);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  border: 1px solid var(--superman-yellow);
+}
+
+/* Responsive para countdown */
+@media (max-width: 768px) {
+  .countdown-card {
+    gap: 1rem;
+    padding: 2rem 1rem;
+  }
+
+  .time-group {
+    min-width: 70px;
+  }
+}
+
+/* Event Details - Tamaño de letra más grande */
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* From Uiverse.io by alexruix - Modificado con colores rojo y azul */
+.card {
+  --background: linear-gradient(to left, #d32f2f 0%, #0066cc 100%);
+  width: 100%;
+  height: 280px;
+  padding: 5px;
+  border-radius: 1rem;
+  overflow: visible;
+  background: #d32f2f;
+  background: var(--background);
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+}
+
+.card::after {
+  position: absolute;
+  content: "";
+  top: 30px;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  transform: scale(0.8);
+  filter: blur(25px);
+  background: #d32f2f;
+  background: var(--background);
+  transition: opacity 0.5s;
+}
+
+.card-info {
+  --color: #181818;
+  background: var(--color);
+  color: var(--color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  border-radius: 0.7rem;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.card .title {
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  line-height: 1.4;
+  color: var(--white);
+}
+
+/*Hover*/
+.card:hover::after {
+  opacity: 0;
+}
+
+.card:hover .card-info {
+  color: #d32f2f;
+  transition: color 1s;
+}
+
+/* Gallery Section */
+.gallery-slider {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.gallery-slide {
+  min-width: 100%;
+  position: relative;
+}
+
+.gallery-slide img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.gallery-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--superman-red);
+  color: var(--white);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.gallery-btn:hover {
+  background: var(--superman-blue);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.gallery-btn.prev {
+  left: 1rem;
+}
+
+.gallery-btn.next {
+  right: 1rem;
+}
+
+/* Inspiration Section */
+.inspiration-section {
+  background: rgba(0, 0, 0, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.inspiration-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>')
+    repeat;
+  animation: starField 20s linear infinite;
+}
+
+.inspiration-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.quote-mark {
+  font-size: 6rem;
+  font-family: var(--font-secondary);
+  color: var(--superman-yellow);
+  line-height: 1;
+  margin-bottom: 1rem;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+}
+
+blockquote {
+  font-family: var(--font-secondary);
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  font-style: italic;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+cite {
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--superman-yellow);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* RSVP Section */
+.rsvp-section {
+  text-align: center;
+}
+
+.rsvp-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* WhatsApp Button */
+.whatsapp-button {
+  display: inline-block;
+  background-color: #25d366;
+  color: var(--white);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+  animation: heartbeat 2s infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.whatsapp-button::before {
+  content: "💬";
+  margin-right: 0.5rem;
+}
+
+.whatsapp-button:hover {
+  background-color: #128c7e;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6);
+}
+
+/* Music Section */
+.music-section {
+  text-align: center;
+}
+
+.music-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.spotify-container {
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  padding: 0 1rem; /* Margen lateral */
+}
+
+/* Pre-map Section - Fondo negro total */
+.pre-map-section {
+  padding: 2rem 0;
+  background: var(--superman-black);
+  color: var(--white);
+  text-align: center;
+  margin: 0;
+}
+
+.pre-map-section h3 {
+  font-family: var(--font-secondary);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--superman-yellow);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.pre-map-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: var(--white);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Radar Loader con colores Superman - DOBLE DE TAMAÑO */
+.loader {
+  position: relative;
+  width: 300px; /* Aumentado de 150px a 300px */
+  height: 300px; /* Aumentado de 150px a 300px */
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 30px 30px 90px rgba(0, 0, 0, 0.55);
+  border: 2px solid var(--superman-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0 auto 2rem auto;
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  inset: 25px;
+  background: transparent;
+  border: 2px dashed var(--superman-red);
+  border-radius: 50%;
+  box-shadow: inset -6px -6px 30px rgba(0, 0, 0, 0.25),
+    inset 6px 6px 42px rgba(0, 0, 0, 0.25);
+}
+
+.loader::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px dashed var(--superman-yellow);
+  box-shadow: inset -6px -6px 30px rgba(0, 0, 0, 0.25),
+    inset 6px 6px 42px rgba(0, 0, 0, 0.25);
+}
+
+.loader span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  background: transparent;
+  transform-origin: top left;
+  animation: radar81 2s linear infinite;
+  border-top: 2px dashed var(--superman-yellow);
+}
+
+.loader span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--superman-blue);
+  transform-origin: top left;
+  transform: rotate(-55deg);
+  filter: blur(36px) drop-shadow(24px 24px 24px var(--superman-blue));
+}
+
+/* Flecha flotante después del radar */
+.floating-arrow {
+  margin-top: 2rem;
+  animation: floatArrow 2s ease-in-out infinite;
+}
+
+.floating-arrow svg {
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+/* Secciones posteriores al radar con fondo gris casi negro */
+.map-section,
+.contact-supermom,
+.gift-section,
+.emi-image-section,
+.footer {
+  background: var(--almost-black);
+  margin: 0;
+  padding: var(--section-padding);
+}
+
+/* Imagen EMI NO FALTES */
+.emi-image-section {
+  padding: 0;
+  background: var(--almost-black);
+}
+
+.emi-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Map Section */
+.map-container {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  margin-top: 2rem;
+}
+
+.map-container iframe {
+  border-radius: 20px;
+}
+
+/* Contact Supermom */
+.contact-supermom {
+  background: linear-gradient(
+    135deg,
+    var(--superman-red) 0%,
+    var(--superman-blue) 100%
+  );
+  color: var(--white);
+  text-align: center;
+}
+
+.contact-supermom h3 {
+  font-family: var(--font-secondary);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.contact-supermom p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Gift Section - Sugerencias de regalos con texto blanco más grande */
+.gift-section {
+  text-align: center;
+}
+
+.gift-section h3 {
+  font-family: var(--font-secondary);
+  font-size: 4.5rem;
+  color: var(--white);
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.gift-section p {
+  font-size: 1.2rem;
+  color: var(--white);
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* From Uiverse.io by kennyotsu - Estilo original de la sección de regalos */
+.gift-section .card {
+  --bg-color: transparent;
+  background: linear-gradient(
+    135deg,
+    var(--superman-blue) 0%,
+    var(--superman-red) 100%
+  );
+  padding: 1rem;
+  border-radius: 20px;
+  margin: 2rem auto;
+  max-width: 300px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  width: auto;
+  height: 150px;
+  position: static;
+  border: 3px solid var(--superman-yellow);
+}
+
+.gift-section .card::after {
+  display: none;
+}
+
+.loader-gifts {
+  color: var(--white);
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  box-sizing: content-box;
+  height: 60px;
+  padding: 15px;
+  display: flex;
+  border-radius: 8px;
+  justify-content: center;
+}
+
+.words {
+  overflow: hidden;
+  position: relative;
+}
+
+.word {
+  display: block;
+  height: 100%;
+  padding-left: 6px;
+  color: var(--white);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  animation: spin_4991 4s infinite;
+  font-size: inherit;
+}
+
+/* Footer - Texto y botón más pequeños para que quepan en un renglón */
+.footer {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: nowrap;
+}
+
+.footer-content span {
+  font-size: 0.75rem; /* Más pequeño */
+  color: var(--white);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+}
+
+.footer-button {
+  display: inline-block;
+  background-color: #25d366;
+  color: var(--white);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+  animation: heartbeat 2s infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-button::before {
+  content: "✨";
+  margin-right: 0.5rem;
+}
+
+.footer-button:hover {
+  background-color: #128c7e;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6);
+}
+
+/* Animaciones */
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes titleZoom {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes subtitleSlide {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes logoFloat {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes scrollBounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) skewX(-30deg);
+  }
+  100% {
+    transform: translateX(100%) skewX(-30deg);
+  }
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes radar81 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes floatArrow {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin_4991 {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-360px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+
+  .countdown-card {
+    flex-direction: row; /* Mantener en fila para móviles */
+    flex-wrap: wrap; /* Permitir que se envuelva si es necesario */
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .time-group {
+    min-width: unset;
+    width: 48%; /* Dos columnas */
+    margin-bottom: 1rem;
+  }
+
+  .time-number {
+    font-size: 2.5rem;
+  }
+
+  .time-label {
+    font-size: 0.8rem;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    height: auto;
+    min-height: 200px;
+  }
+
+  .gallery-slide img {
+    height: 300px;
+  }
+
+  .gallery-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .spotify-container {
+    padding: 0;
+  }
+
+  .loader {
+    width: 200px;
+    height: 200px;
+  }
+
+  .loader::before {
+    inset: 15px;
+  }
+
+  .loader::after {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contact-supermom h3 {
+    font-size: 2rem;
+  }
+
+  .contact-supermom p {
+    font-size: 1rem;
+  }
+
+  .gift-section h3 {
+    font-size: 2rem;
+  }
+
+  .gift-section p {
+    font-size: 1rem;
+  }
+
+  .loader-gifts {
+    font-size: 1.5rem;
+    height: 40px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-content span {
+    font-size: 0.65rem;
+  }
+
+  .footer-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* New RSVP Section Styles */
+.new-rsvp-section {
+  padding: var(--section-padding);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.rsvp-card {
+  background: linear-gradient(
+    135deg,
+    var(--superman-blue) 0%,
+    var(--superman-red) 100%
+  );
+  border-radius: 25px;
+  padding: 3rem 2rem;
+  max-width: 600px;
+  margin: 2rem auto;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border: 4px solid var(--superman-yellow);
+  position: relative;
+  overflow: hidden;
+}
+
+.rsvp-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-20deg);
+  animation: shine 3s infinite;
+}
+
+.rsvp-form .form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.rsvp-form label {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--white);
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.rsvp-form input[type="text"],
+.rsvp-form input[type="number"] {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid var(--superman-yellow);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.rsvp-form input[type="text"]::placeholder,
+.rsvp-form input[type="number"]::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.rsvp-form input[type="text"]:focus,
+.rsvp-form input[type="number"]:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px var(--superman-yellow);
+}
+
+.confirm-button {
+  background-color: #25d366; /* WhatsApp Green */
+  color: var(--white);
+  font-family: var(--font-primary);
+  font-weight: 700;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+  animation: heartbeat-slow 4s infinite ease-in-out; /* Latido lento */
+}
+
+.confirm-button:hover {
+  background-color: #128c7e;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6);
+}
+
+/* Animación de latido lento */
+@keyframes heartbeat-slow {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.02);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.02);
+  }
+}
+
+/* Animación de reflejo (shine) */
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Ajustes para la sección de regalos */
+@keyframes spin_4991 {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(-45px);
+  }
+  20% {
+    transform: translateY(-90px);
+  }
+  30% {
+    transform: translateY(-135px);
+  }
+  40% {
+    transform: translateY(-180px);
+  }
+  50% {
+    transform: translateY(-225px);
+  }
+  60% {
+    transform: translateY(-270px);
+  }
+  70% {
+    transform: translateY(-315px);
+  }
+  80% {
+    transform: translateY(-360px);
+  }
+  90% {
+    transform: translateY(-405px);
+  }
+  100% {
+    transform: translateY(-450px);
+  }
+}
+
+.words {
+  height: 58px; /* Altura de una palabra */
+}
+
+.word {
+  height: 45px; /* Altura de una palabra */
+  line-height: 45px; /* Centrar verticalmente */
+}
+
+/* Ajuste para la galería de fotos cuadradas */
+.gallery-slide img {
+  width: 100%;
+  height: 100%; /* Asegura que la altura sea igual al ancho del contenedor */
+  aspect-ratio: 1 / 1; /* Mantiene la relación 1:1 */
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.gallery-slider {
+  max-width: 600px; /* Ajusta el ancho máximo para que las imágenes se vean bien */
+  margin: 0 auto;
+}
+
+/* Ajuste para el contador regresivo en una sola línea */
+.countdown-card {
+  flex-direction: row; /* Asegura que los elementos estén en una fila */
+  flex-wrap: nowrap; /* Evita que se envuelvan a la siguiente línea */
+  justify-content: space-around; /* Distribuye el espacio uniformemente */
+  align-items: flex-end; /* Alinea los elementos en la parte inferior */
+  padding: 1.5rem 1rem; /* Ajusta el padding */
+}
+
+.time-group {
+  margin-bottom: 0; /* Elimina el margen inferior */
+  min-width: unset; /* Elimina el ancho mínimo */
+  width: auto; /* Ajusta el ancho automáticamente */
+}
+
+.time-number {
+  font-size: clamp(2rem, 5vw, 3rem); /* Ajusta el tamaño de fuente */
+}
+
+.time-label {
+  font-size: clamp(0.7rem, 1.5vw, 0.9rem); /* Ajusta el tamaño de fuente */
+  padding: 0.2rem 0.5rem; /* Ajusta el padding */
+}
+
+@media (max-width: 768px) {
+  .countdown-card {
+    flex-wrap: wrap; /* Permite que se envuelva en pantallas pequeñas */
+    padding: 1rem 0.5rem;
+  }
+
+  .time-group {
+    width: 45%; /* Dos columnas en pantallas pequeñas */
+    margin-bottom: 0.5rem;
+  }
+}
+/* Variables CSS para personalización */
+:root {
+  /* Colores Superman */
+  --superman-blue: #0066cc;
+  --superman-red: #d32f2f;
+  --superman-yellow: #ffeb3b;
+  --superman-black: #000000;
+  --superman-gray: #666666;
+
+  /* Colores adicionales */
+  --white: #ffffff;
+  --dark-bg: #111111;
+  --almost-black: #1a1a1a;
+  --light-gray: #f5f5f5;
+
+  /* Tipografías */
+  --font-primary: "Montserrat", sans-serif;
+  --font-secondary: "Fredoka", cursive;
+
+  /* Espaciado reducido */
+  --container-padding: 1rem;
+  --section-padding: 2rem 0;
+}
+
+/* Reset y base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  color: var(--white);
+  overflow-x: hidden;
+  /* Fondo fijo optimizado para mobile first */
+  background: url("https://raw.githubusercontent.com/edvardoviedo/duskyberryassets/refs/heads/main/best-dc-comics-iphone-wallpaper-image-iphone-lmb8gosdiw5574pr.webp")
+    center center fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Mejora para dispositivos móviles - evitar zoom antiestético */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center center;
+    min-height: 100vh;
+  }
+}
+
+/* Overlay para mejorar legibilidad del texto sobre el fondo */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Tipografía con sombras para contraste */
+.section-title {
+  font-family: var(--font-secondary);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Texto general con sombra */
+p,
+h3,
+h2 {
+  color: var(--white);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Header Hero Section - sin cambios en el fondo */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* Remover el fondo fijo del hero para que use el video */
+  background: none;
+}
+
+.hero-section::before {
+  display: none; /* Desactivar overlay en hero */
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Nivel base para el video */
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-fallback {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--superman-blue) 0%,
+    var(--superman-red) 100%
+  );
+}
+
+/* CAMBIO: Filtro/degradado del header */
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(211, 47, 47, 0.6) 0%,
+    rgba(0, 102, 204, 0.5) 50%,
+    rgba(211, 47, 47, 0.6) 100%
+  );
+  z-index: 2; /* Se asegura que esté sobre el video */
+}
+
+.hero-content {
+  text-align: center;
+  color: var(--white);
+  position: relative; /* Necesario para que z-index funcione */
+  z-index: 3; /* Se asegura que esté sobre el overlay */
+  animation: heroFadeIn 2s ease-out;
+}
+
+.main-title {
+  font-family: var(--font-secondary);
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  animation: titleZoom 2s ease-out 0.5s both;
+}
+
+.subtitle {
+  font-family: var(--font-secondary);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 500;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: subtitleSlide 2s ease-out 1s both;
+}
+
+.superman-logo {
+  margin: 2rem 0;
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+.s-logo-img {
+  width: 120px;
+  height: auto;
+  filter: drop-shadow(0 0 20px rgba(255, 235, 59, 0.5));
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: var(--white);
+  animation: scrollBounce 2s infinite;
+  cursor: pointer;
+  z-index: 3; /* Sobre el overlay */
+}
+
+.scroll-arrow {
+  margin-bottom: 0.5rem;
+  animation: scrollBounce 2s infinite;
+}
+
+.scroll-arrow svg {
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+/* Secciones con fondo transparente para mostrar el fondo fijo */
+.countdown-section,
+.event-details,
+.gallery-section,
+.inspiration-section,
+.rsvp-section,
+.music-section {
+  padding: var(--section-padding);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  margin: 0;
+}
+
+/* Countdown Section - Estilo Superman con colores temáticos */
+.countdown-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  background: linear-gradient(
+    135deg,
+    var(--superman-blue) 0%,
+    var(--superman-red) 100%
+  );
+  border-radius: 25px;
+  padding: 3rem 2rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border: 4px solid var(--superman-yellow);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.countdown-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 235, 59, 0.1),
+    transparent
+  );
+  animation: shimmer 3s linear infinite;
+  pointer-events: none;
+}
+
+.countdown-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+}
+
+.time-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 100px;
+  position: relative;
+}
+
+/* CAMBIO: Números de la cuenta regresiva más grandes */
+.time-number {
+  display: block;
+  font-family: var(--font-secondary);
+  font-size: clamp(3.5rem, 7vw, 5rem); /* Aumentado el tamaño */
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(45deg, var(--superman-yellow), #fff700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: transform 0.3s ease;
+}
+
+.time-label {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: var(--white);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  border: 1px solid var(--superman-yellow);
+}
+
+/* Responsive para countdown */
+@media (max-width: 768px) {
+  .countdown-card {
+    gap: 1rem;
+    padding: 2rem 1rem;
+  }
+
+  .time-group {
+    min-width: 70px;
+  }
+}
+
+/* Event Details - Tamaño de letra más grande */
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* From Uiverse.io by alexruix - Modificado con colores rojo y azul */
+.card {
+  --background: linear-gradient(to left, #d32f2f 0%, #0066cc 100%);
+  width: 100%;
+  height: 280px;
+  padding: 5px;
+  border-radius: 1rem;
+  overflow: visible;
+  background: #d32f2f;
+  background: var(--background);
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+}
+
+.card::after {
+  position: absolute;
+  content: "";
+  top: 30px;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  transform: scale(0.8);
+  filter: blur(25px);
+  background: #d32f2f;
+  background: var(--background);
+  transition: opacity 0.5s;
+}
+
+.card-info {
+  --color: #181818;
+  background: var(--color);
+  color: var(--color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  border-radius: 0.7rem;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.card .title {
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  line-height: 1.4;
+  color: var(--white);
+}
+
+/*Hover*/
+.card:hover::after {
+  opacity: 0;
+}
+
+.card:hover .card-info {
+  color: #d32f2f;
+  transition: color 1s;
+}
+
+/* Gallery Section */
+.gallery-slider {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.gallery-slide {
+  min-width: 100%;
+  position: relative;
+}
+
+.gallery-slide img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.gallery-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--superman-red);
+  color: var(--white);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.gallery-btn:hover {
+  background: var(--superman-blue);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.gallery-btn.prev;
