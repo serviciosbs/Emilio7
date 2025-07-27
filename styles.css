@@ -1721,3 +1721,8 @@ h2 {
 }
 
 .gallery-btn.prev;
+
+.loader-slow .words {
+  animation-duration: 9s !important; /* Cambia según lo lento que quieras */
+}
+
