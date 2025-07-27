@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
 // Countdown Timer
 function initCountdown() {
   // Fecha del evento - EDITABLE: Sábado 2 de agosto de 2025
-  const eventDate = new Date("2025-08-02T16:00:00").getTime();
+  const eventDate = new Date("2025-08-03T16:00:00").getTime(); // ← FECHA CORRECTA
+
 
   const countdownTimer = setInterval(function () {
     const now = new Date().getTime();
