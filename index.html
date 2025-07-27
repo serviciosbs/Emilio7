@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>¡Emilio cumple 7 años!</title>
+    <meta
+      name="description"
+      content="Invitación digital para el cumpleaños de Emilio con temática de Superman"
+    />
+
+    <!-- Meta tags para WhatsApp y redes sociales -->
+    <!-- EDITABLE: Cambiar la URL por la URL final de la invitación -->
+    <meta property="og:url" content="Emilio bday" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="¡Emilio cumple 7 años! - Invitación Superman"
+    />
+    <meta
+      property="og:description"
+      content="¡Hola súper amigos! Soy Emilio y estoy súper emocionado porque voy a cumplir 7 años. ¡Ven a mi fiesta de Superman!"
+    />
+    <!-- EDITABLE: Cambiar por la imagen thumbnail que quieras mostrar en WhatsApp -->
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/edvardoviedo/recursos/refs/heads/main/10.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="¡Emilio cumple 7 años! - Invitación Superman"
+    />
+    <meta
+      name="twitter:description"
+      content="¡Hola súper amigos! Soy Emilio y estoy súper emocionado porque voy a cumplir 7 años. ¡Ven a mi fiesta de Superman!"
+    />
+    <meta
+      name="twitter:image"
+      content="https://raw.githubusercontent.com/edvardoviedo/recursos/refs/heads/main/10.jpg"
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Fredoka:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><text y=\'.9em\' font-size=\'90\'>🦸‍♂️</text></svg>"
+    />
+  </head>
+  <body>
+    <!-- Header con video fullscreen -->
+    <header class="hero-section" id="hero">
+      <div class="video-container">
+        <!-- Video de fondo actualizado -->
+        <video autoplay loop muted playsinline>
+          <source
+            src="https://raw.githubusercontent.com/edvardoviedo/recursos/main/emibomb%C3%B3n.mp4"
+            type="video/mp4"
+          />
+          <!-- Fallback para navegadores que no soporten video -->
+          <div
+            class="video-fallback"
+            style="
+              background-image: url(\'https://raw.githubusercontent.com/edvardoviedo/recursos/refs/heads/main/best-dc-comics-iphone-wallpaper-image-iphone-lmb8gosdiw5574pr.webp\');
+            "
+          ></div>
+        </video>
+        <div class="video-overlay"></div>
+      </div>
+
+      <div class="hero-content">
+        <!-- Nombre del festejado: Emilio -->
+        <!-- Edad: 7 años -->
+        <!-- Evento: Cumpleaños -->
+        <!-- Temática: Superman -->
+        <h1 class="main-title">Hola, soy Emilio</h1>
+        <h2 class="subtitle">¡Y cumplo 7 años!</h2>
+        <div class="superman-logo">
+          <img
+            src="https://raw.githubusercontent.com/edvardoviedo/duskyberryassets/refs/heads/main/hhh.png"
+            alt="Superman Logo"
+            class="s-logo-img"
+          />
+        </div>
+      </div>
+
+      <div class="scroll-indicator">
+        <div class="scroll-arrow">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 5V19M12 19L19 12M12 19L5 12"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
+    </header>
+
+    <section class="inspiration-section" id="inspiration">
+      <div class="container">
+        <div class="inspiration-content">
+          <div class="quote-mark">"</div>
+          <blockquote>
+            ¡Hola! Soy Emilio y estoy súper emocionado porque voy a cumplir 7
+            años. Quiero que vengas a mi fiesta porque juntos seremos el mejor
+            equipo de superhéroes. ¡Vamos a bailar, jugar, comer y divertirnos
+            como nunca!
+          </blockquote>
+          <cite>- Te espero</cite>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cuenta regresiva -->
+    <section class="countdown-section" id="countdown">
+      <div class="container">
+        <h2 class="section-title">La aventura comienza en:</h2>
+        <div class="countdown-card" id="countdownTimer">
+          <div class="time-group">
+            <span class="time-number" id="days">00</span>
+            <span class="time-label">Días</span>
+          </div>
+          <div class="time-group">
+            <span class="time-number" id="hours">00</span>
+            <span class="time-label">hrs</span>
+          </div>
+          <div class="time-group">
+            <span class="time-number" id="minutes">00</span>
+            <span class="time-label">mins</span>
+          </div>
+          <div class="time-group">
+            <span class="time-number" id="seconds">00</span>
+            <span class="time-label">segs</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detalles del evento -->
+    <section class="event-details" id="details">
+      <div class="container">
+        <h2 class="section-title">Detalles de la misión secreta</h2>
+        <div class="details-grid">
+          <div class="card">
+            <div class="card-info">
+              <p class="title">📅 Fecha<br />Sábado 2 de Agosto</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-info">
+              <p class="title">⏰ Hora<br />A partir del mediodía</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-info">
+              <p class="title">
+                📍 Lugar<br />Los Cotorrines<br />San Antonio de las Alazanas
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-info">
+              <p class="title">
+                🦸‍♂️ Dress Code<br />¡Ven vestido como tu superhéroe favorito!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galería temática -->
+    <section class="gallery-section" id="gallery">
+      <div class="container">
+        <h2 class="section-title">Galería del momento</h2>
+        <div class="gallery-slider">
+          <div class="gallery-track" id="galleryTrack">
+            <div class="gallery-slide">
+              <img
+                src="https://raw.githubusercontent.com/edvardoviedo/recursos/refs/heads/main/galer%C3%ADa%20Emi/1.jpg"
+                alt="Emilio 1"
+              />
+            </div>
+            <div class="gallery-slide">
+              <img
+                src="https://raw.githubusercontent.com/edvardoviedo/recursos/refs/heads/main/galer%C3%ADa%20Emi/2.jpg"
+                alt="Emilio 2"
+              />
+            </div>
+            <div class="gallery-slide">
+              <img
+                src="https://raw.githubusercontent.com/edvardoviedo/recursos/refs/heads/main/galer%C3%ADa%20Emi/3.jpg"
+                alt="Emilio 3"
+              />
+            </div>
+          </div>
+          <button class="gallery-btn prev" id="prevBtn">‹</button>
+          <button class="gallery-btn next" id="nextBtn">›</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Playlist de Spotify -->
+    <section class="music-section" id="music">
+      <div class="container">
+        <h2 class="section-title">Música para verdaderos superhéroes</h2>
+        <p>¿Cuál más me recomiendas?</p>
+        <div class="spotify-container">
+          <iframe
+            data-testid="embed-iframe"
+            style="border-radius: 12px"
+            src="https://open.spotify.com/embed/playlist/4SXyx1wkeKf3EwskhMu9Gg?utm_source=generator&theme=0"
+            width="100%"
+            height="352"
+            frameborder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mini sección antes del mapa -->
+    <section class="pre-map-section" id="pre-map">
+      <div class="container">
+        <h3>¿No sabes en dónde nos reuniremos?</h3>
+        <p>No te preocupes, estamos buscando la criptonita...</p>
+        <div class="loader">
+          <span></span>
+        </div>
+        <div class="floating-arrow">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 5V19M12 19L19 12M12 19L5 12"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mapa -->
+    <section class="map-section" id="map">
+      <div class="container">
+        <h2 class="section-title">Ubicación de la fortaleza</h2>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d175.88008417988408!2d-100.60427265346115!3d25.26932326050763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x868800030dbf5b7d%3A0x9c85da61d131078c!2s25376%20Coahuila!5e1!3m2!1sen!2smx!4v1753607458530!5m2!1sen!2smx"
+            width="400"
+            height="300"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nueva sección de confirmación de asistencia -->
+    <section class="new-rsvp-section" id="new-rsvp">
+      <div class="container">
+        <h2 class="section-title">¡Confirma tu asistencia!</h2>
+        <div class="rsvp-card">
+          <div class="rsvp-form">
+            <div class="form-group">
+              <label for="userName">Tu nombre:</label>
+              <input
+                type="text"
+                id="userName"
+                placeholder="Escribe tu nombre aquí"
+              />
+            </div>
+            <div class="form-group">
+              <label for="guestCount">¿Cuántas personas vienen contigo?</label>
+              <input
+                type="number"
+                id="guestCount"
+                placeholder="0"
+                min="0"
+                max="10"
+              />
+            </div>
+            <button class="confirm-button" onclick="sendConfirmation()">
+              Confirmar
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto con súper mamá -->
+    <section class="contact-supermom" id="contact">
+      <div class="container">
+        <h3>¿Tienes alguna duda?</h3>
+        <p>¡Escríbele a mi súper mamá!</p>
+        <a
+          href="https://wa.me/5218443423850"
+          class="whatsapp-button"
+          target="_blank"
+        >
+          Escribir por WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <!-- Ideas de regalos -->
+    <section class="gift-section" id="gifts">
+      <div class="container">
+        <h3>Lo más importante es que me acompañes</h3>
+        <p>
+          Pero como sé que te gusta hacer súper regalos, te dejo algunas ideas:
+        </p>
+        <div class="card">
+          <div class="loader-gifts">
+            <div class="words">
+              <span class="word">Dinosaurios</span>
+              <span class="word">Superhéroes</span>
+              <span class="word">Material de arte</span>
+              <span class="word">Libros</span>
+              <span class="word">Ropa talla 10</span>
+              <span class="word">Ca$h</span>
+              <span class="word">Cochecitos</span>
+              <span class="word">Dragon Ball</span>
+              <span class="word">Harry Potter</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Imagen EMI NO FALTES -->
+    <section class="emi-image-section">
+      <img
+        src="https://raw.githubusercontent.com/edvardoviedo/duskyberryassets/refs/heads/main/EMI_NO_FALTES.jpg"
+        alt="Emi No Faltes"
+        class="emi-image"
+      />
+    </section>
+
+    <!-- Footer promocional -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <span>¿Quieres una invitación como esta? - escríbenos</span>
+          <a
+            href="https://wa.me/528134765503?text=Hola%2C%20%C2%BFme%20puedes%20dar%20informaci%C3%B3n%20de%20las%20invitaciones%20digitales%3F"
+            target="_blank"
+            class="footer-button"
+          >
+            duskyberry
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>
